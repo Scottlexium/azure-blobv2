@@ -40,6 +40,7 @@
   },
   "name": "azure-blobv2",
   "author": "scottlexium",
+  "description": "Microsoft Azure storage client library for Node js easy to use",
   "module": "dist/azure-blobv2.esm.js",
   "size-limit": [
     {
