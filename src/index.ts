@@ -1,5 +1,5 @@
 import { BlobServiceClient, Metadata } from '@azure/storage-blob';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 import { DefaultAzureCredential } from '@azure/identity';
 import fs from 'fs';
 import magic from 'stream-mmmagic';
@@ -40,7 +40,7 @@ export const upload = async ({
         throw new Error('Storage account name does not match');
       const containerExists = await containerClient.exists();
       if (!containerExists) await containerClient.create({ access: 'blob' });
-      fileName ? fileName : (fileName = uuid());
+      fileName ? fileName : (fileName = uuidv4());
       const blockBlobClient = containerClient.getBlockBlobClient(fileName);
       const file = fs.readFileSync(filePath);
       const input = fs.createReadStream(filePath);
@@ -76,7 +76,7 @@ export const upload = async ({
       );
       const containerExists = await containerClient.exists();
       if (!containerExists) await containerClient.create({ access: 'blob' });
-      fileName ? fileName : (fileName = uuid());
+      fileName ? fileName : (fileName = uuidv4());
       const blockBlobClient = containerClient.getBlockBlobClient(fileName);
       const file = fs.readFileSync(filePath);
       const input = fs.createReadStream(filePath);
