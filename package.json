@@ -19,6 +19,14 @@
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
+  "keywords": [
+    "modules",
+    "stdlib",
+    "utils",
+    "azure",
+    "azure-blob-storage",
+    "node js"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
