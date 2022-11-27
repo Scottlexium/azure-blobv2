@@ -38,7 +38,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "azure-blobv2",
+  "name": "@lexium/azure-blob",
   "author": "scottlexium",
   "module": "dist/azure-blobv2.esm.js",
   "size-limit": [
