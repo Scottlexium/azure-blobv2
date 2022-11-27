@@ -3,6 +3,7 @@ import { uuid } from 'uuidv4';
 import { DefaultAzureCredential } from '@azure/identity';
 import fs from 'fs';
 import magic from 'stream-mmmagic';
+import { resolve } from 'path';
 
 export const upload = async ({
   containerName,
@@ -21,7 +22,11 @@ export const upload = async ({
   accountName: string;
   metaData?: Metadata;
 }) => {
+  // get where the file is located
+  filePath = resolve(filePath);
+  console.log(filePath);
   console.log('upload started...');
+
   try {
     if (useConnectionString) {
       if (!connectionString) throw new Error('connectionString is required');
@@ -53,11 +58,11 @@ export const upload = async ({
         }
       );
       console.log('file uploaded!');
-      const url = `${containerClient.url}/${containerName}/${fileName}`;
+      const url = `${containerClient.url}/${fileName}`;
       return {
         data: { mime, url },
         success: true,
-        message: 'Image uploaded successfully',
+        message: 'File uploaded successfully',
         response: uploadBlobResponse,
       };
     } else {
@@ -88,12 +93,12 @@ export const upload = async ({
           metadata: metaData,
         }
       );
-      const url = `${containerClient.url}/${containerName}/${fileName}`;
+      const url = `${containerClient.url}/${fileName}`;
       console.log('file uploaded!');
       return {
         data: { mime, url },
         success: true,
-        message: 'Image uploaded successfully',
+        message: 'File uploaded successfully',
         response: uploadBlobResponse,
       };
     }
