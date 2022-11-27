@@ -2170,6 +2170,11 @@
   "resolved" "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz"
   "version" "1.1.2"
 
+"buffer-peek-stream@^1.1.0":
+  "integrity" "sha512-b3MXlJ52rPOL5xCAQsiCOy/tY9WXOP/hwATporJriUDxnT3MjJgVppDzTFegpg2Nw7NMS28MKC6IKvaXLnGr+Q=="
+  "resolved" "https://registry.npmjs.org/buffer-peek-stream/-/buffer-peek-stream-1.1.0.tgz"
+  "version" "1.1.0"
+
 "builtin-modules@^3.1.0":
   "integrity" "sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw=="
   "resolved" "https://registry.npmjs.org/builtin-modules/-/builtin-modules-3.3.0.tgz"
@@ -5011,6 +5016,13 @@
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
+"mmmagic@^0.5.0":
+  "integrity" "sha512-xLqCu7GJYTzJczg0jafXFuh+iPzQL/ru0YYf4GiTTz8Cehru/wiXtUS8Pp8Xi77zNaiVndJ0OO1yAFci6iHyFg=="
+  "resolved" "https://registry.npmjs.org/mmmagic/-/mmmagic-0.5.3.tgz"
+  "version" "0.5.3"
+  dependencies:
+    "nan" "^2.13.2"
+
 "mri@^1.1.0":
   "integrity" "sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA=="
   "resolved" "https://registry.npmjs.org/mri/-/mri-1.2.0.tgz"
@@ -5030,6 +5042,11 @@
   "integrity" "sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA=="
   "resolved" "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.8.tgz"
   "version" "0.0.8"
+
+"nan@^2.13.2":
+  "integrity" "sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ=="
+  "resolved" "https://registry.npmjs.org/nan/-/nan-2.17.0.tgz"
+  "version" "2.17.0"
 
 "nanoid@^3.3.4":
   "integrity" "sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw=="
@@ -6265,6 +6282,14 @@
   "integrity" "sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw=="
   "resolved" "https://registry.npmjs.org/stoppable/-/stoppable-1.1.0.tgz"
   "version" "1.1.0"
+
+"stream-mmmagic@^2.3.0":
+  "integrity" "sha512-6pzzM+P/cTF77Cq6cZ93vPF2k8FNYHs7F3vnIhwbEbr7QDbhR2p9RAjq2FwHUdH1BL/OJBRQ6XrBFj+RuRpVqQ=="
+  "resolved" "https://registry.npmjs.org/stream-mmmagic/-/stream-mmmagic-2.3.0.tgz"
+  "version" "2.3.0"
+  dependencies:
+    "buffer-peek-stream" "^1.1.0"
+    "mmmagic" "^0.5.0"
 
 "string-length@^3.1.0":
   "integrity" "sha512-Ttp5YvkGm5v9Ijagtaz1BnN+k9ObpvS0eIBblPMp2YWL8FBmi9qblQ9fexc2k/CXFgrTIteU3jAw3payCnwSTA=="
