@@ -2,9 +2,8 @@ import { BlobServiceClient, Metadata } from '@azure/storage-blob';
 import { v4 as uuidv4 } from 'uuid';
 import { DefaultAzureCredential } from '@azure/identity';
 import fs from 'fs';
-import magic from 'stream-mmmagic';
+// import magic from 'stream-mmmagic';
 import { resolve } from 'path';
-
 export const upload = async ({
   containerName,
   fileName,
@@ -43,24 +42,25 @@ export const upload = async ({
       fileName ? fileName : (fileName = uuidv4());
       const blockBlobClient = containerClient.getBlockBlobClient(fileName);
       const file = fs.readFileSync(filePath);
-      const input = fs.createReadStream(filePath);
-      const [mime] = await magic.promise(input);
+      // const input = fs.createReadStream(filePath);
+      // const [mime] = await magic.promise(input);
       console.log('uploading...');
       const uploadBlobResponse = await blockBlobClient.upload(
         file,
         file.length,
         {
-          blobHTTPHeaders: {
-            blobContentType: JSON.parse(JSON.stringify(mime)).type,
-            blobContentEncoding: JSON.parse(JSON.stringify(mime)).encoding,
-          },
+          // blobHTTPHeaders: {
+          //   blobContentType: JSON.parse(JSON.stringify(mime)).type,
+          //   blobContentEncoding: JSON.parse(JSON.stringify(mime)).encoding,
+          // },
           metadata: metaData,
         }
       );
       console.log('file uploaded!');
       const url = `${containerClient.url}/${fileName}`;
       return {
-        data: { mime, url },
+        // data: { mime, url },
+        data: { url },
         success: true,
         message: 'File uploaded successfully',
         response: uploadBlobResponse,
@@ -79,24 +79,25 @@ export const upload = async ({
       fileName ? fileName : (fileName = uuidv4());
       const blockBlobClient = containerClient.getBlockBlobClient(fileName);
       const file = fs.readFileSync(filePath);
-      const input = fs.createReadStream(filePath);
-      const [mime] = await magic.promise(input);
+      // const input = fs.createReadStream(filePath);
+      // const [mime] = await magic.promise(input);
       console.log('uploading...');
       const uploadBlobResponse = await blockBlobClient.upload(
         file,
         file.length,
         {
-          blobHTTPHeaders: {
-            blobContentType: JSON.parse(JSON.stringify(mime)).type,
-            blobContentEncoding: JSON.parse(JSON.stringify(mime)).encoding,
-          },
+          // blobHTTPHeaders: {
+          //   blobContentType: JSON.parse(JSON.stringify(mime)).type,
+          //   blobContentEncoding: JSON.parse(JSON.stringify(mime)).encoding,
+          // },
           metadata: metaData,
         }
       );
       const url = `${containerClient.url}/${fileName}`;
       console.log('file uploaded!');
       return {
-        data: { mime, url },
+        // data: { mime, url },
+        data: { url },
         success: true,
         message: 'File uploaded successfully',
         response: uploadBlobResponse,
